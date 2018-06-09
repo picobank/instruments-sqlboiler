@@ -9,7 +9,7 @@ import (
 	_ "github.com/jackc/pgx/stdlib"
 	"github.com/spf13/viper"
 
-	"github.com/picobank/sqlboiler/models"
+	"github.com/picobank/instruments-sqlboiler/models"
 	"github.com/volatiletech/sqlboiler/queries/qm"
 	log15 "gopkg.in/inconshreveable/log15.v2"
 )
