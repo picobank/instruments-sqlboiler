@@ -1,0 +1,9 @@
+blacklist=["goose_db_version"]
+schema="instruments"
+[postgres]
+  dbname="picobank"
+  host="localhost"
+  port=5432
+  user="instruments"
+  pass="raspberry"
+  sslmode="disable"
