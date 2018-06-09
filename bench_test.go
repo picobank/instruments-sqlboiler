@@ -2,7 +2,6 @@ package main
 
 import (
 	"database/sql"
-	"fmt"
 	"sync"
 	"testing"
 
@@ -57,7 +56,6 @@ func setup(b *testing.B) {
 			rows.Scan(&id)
 			randInstrumentIDs = append(randInstrumentIDs, id)
 		}
-		fmt.Printf("COUCOU: %v", randInstrumentIDs)
 	})
 
 }
