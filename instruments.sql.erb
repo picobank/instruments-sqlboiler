@@ -1,0 +1,15 @@
+-- erb -r ffaker -r date instruments.sql.erb
+INSERT INTO instrument (instrument_id, symbol, name, description, instrument_class_id, currency_id, from_date, thru_date, created_by, updated_by) VALUES 
+<% 
+    FFaker::Currency::CURRENCY_CODE.length().times do |n|
+      symbol     = FFaker::Currency::CURRENCY_CODE[n]
+      name       = FFaker::Currency::CURRENCY_NAME[n].gsub("'", "''")
+      from_date  = (Date.today - rand(10_000)).strftime("%Y-%m-%d %H:%M:%S")
+      thru_date  = (Date.today - rand(10_000)).strftime("%Y-%m-%d %H:%M:%S")
+      created_by = FFaker::InternetSE.login_user_name
+      updated_by = FFaker::InternetSE.login_user_name
+%>
+<%= "," unless n == 0 
+%>(<%= 20_000 + n %>, '<%= symbol %>', '<%= name %>', '<%= "#{name} Currency" %>', 1, NULL, '<%= from_date %>', '<%= thru_date %>', '<%= created_by %>', '<%= updated_by %>')<% 
+end 
+%>;
